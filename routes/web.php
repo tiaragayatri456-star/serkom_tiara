@@ -43,7 +43,7 @@ Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('use
 
 
 Route::middleware(['web'])->group(function () {
-    Route::get('/dashboard', function () {
+    Route::get('/admin/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
 
@@ -94,7 +94,6 @@ Route::middleware(['web'])->group(function () {
     Route::get('/galeri/{id}/edit', [GaleriController::class, 'edit'])->name('admin.galeri.edit');
     Route::put('/galeri/{id}', [GaleriController::class, 'update'])->name('admin.galeri.update');
     Route::delete('/galeri/{id}', [GaleriController::class, 'destroy'])->name('admin.galeri.destroy');
-    Route::get('/admin/dashboard', function () {return view('operator.dashboard');})->name('operator.dashboard');
 
     // Contoh route lain untuk operator (sesuaikan dengan kebutuhan)
     // Route::get('/operator/berita', [BeritaController::class, 'berita'])->name('operator.berita');
