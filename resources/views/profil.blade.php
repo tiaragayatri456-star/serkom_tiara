@@ -15,16 +15,17 @@
         </div>
         <div class="card-body">
            <div class="row align-items-center">
-    <div class="col-md-4 mb-3 mb-md-0 text-center">
-        <img src="{{ asset('images/uj.png') }}" 
-             alt="Kepala Sekolah SMK YPC Tasikmalaya" 
-             class="img-fluid rounded-circle shadow-sm" 
+             <div class="col-md-4 mb-3 mb-md-0 text-center">
+             <img src="{{ asset('images/uj.png') }}"
+             alt="Kepala Sekolah {{  $profil->nama_sekolah ?? '' }}"
+             class="img-fluid rounded-circle shadow-sm"
              style="max-width: 220px;">
     </div>
 
     <div class="col-md-8">
         @if($profil && $profil->deskripsi)
             {!! $profil->deskripsi !!}
+            <p class="mt-3 fw-bold">Nama: {{ $profil->kepala_sekolah ?? 'Belum diisi' }}</p>
         @else
             <p>Belum ada sambutan kepala sekolah.</p>
         @endif
@@ -40,8 +41,8 @@
         <div class="card-body">
             <div class="row align-items-center">
                 <div class="col-md-5 mb-3 mb-md-0">
-                    <img src="{{ asset('images/s.jpg') }}" 
-                         alt="Gedung SMK YPC Tasikmalaya" 
+                    <img src="{{ asset('images/s.jpg') }}"
+                         alt="Gedung SMK YPC Tasikmalaya"
                          class="img-fluid rounded shadow-sm">
                 </div>
                 <div class="col-md-7">
@@ -59,20 +60,20 @@
         </div>
     </div>
 
-  
+
     <div class="card shadow border-0 mb-5 wow fadeInUp" data-wow-delay="0.3s">
         <div class="card-header bg-gradient bg-success text-white fw-bold">
             <i class="bi bi-lightbulb-fill me-2"></i> Visi
         </div>
         <div class="card-body text-center">
             <blockquote class="blockquote mb-0 fst-italic">
-                <p class="fs-5">"Menjadi SMK yang unggul dalam prestasi, didasari IMTAK, dihiasi Akhlakul Karimah, 
+                <p class="fs-5">"Menjadi SMK yang unggul dalam prestasi, didasari IMTAK, dihiasi Akhlakul Karimah,
                 dibekali dengan IPTEK serta mampu bersaing pada tingkat Nasional dan Global."</p>
             </blockquote>
         </div>
     </div>
 
- 
+
     <div class="card shadow border-0 mb-5 wow fadeInUp" data-wow-delay="0.4s">
         <div class="card-header bg-gradient bg-info text-white fw-bold">
             <i class="bi bi-flag-fill me-2"></i> Misi

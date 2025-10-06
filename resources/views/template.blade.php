@@ -6,16 +6,16 @@
     <title>@yield('title') - SekolahKu</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f0f8ff; 
+            background: #f0f8ff;
         }
         .navbar {
-            background: linear-gradient(90deg, #4facfe, #00f2fe); 
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
         }
         .navbar-brand {
             font-weight: bold;
@@ -27,7 +27,7 @@
             transition: 0.3s;
         }
         .nav-link:hover {
-            color: #ffe082 !important; 
+            color: #ffe082 !important;
         }
         .dropdown-menu {
             border-radius: 0.5rem;
@@ -56,14 +56,9 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                    <a class="nav-link fw-bold" href="{{ url('/login') }}">
-                  <i class="bi bi-box-arrow-in-right me-1"></i> Login
-                  </a>
-                  </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold " href="{{ url('/') }}">Beranda</a>
                     </li>
@@ -80,9 +75,15 @@
                         <a class="nav-link fw-bold" href="{{ url('/program') }}">Program Keahlian</a>
                     </li>
                      <li class="nav-item">
+                        <a class="nav-link fw-bold" href="{{ url('/guru') }}">Guru</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="{{ url('/siswa') }}">Siswa</a>
+                    </li>
+                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="{{ url('/galeri') }}">Galeri</a>
                     </li>
-                   
+
                 </ul>
             </div>
         </div>
@@ -100,7 +101,7 @@
         <h5 class="fw-bold">About Us</h5>
         <hr style="width:50px; border:2px solid #4facfe;">
         <p><i class="fas fa-map-marker-alt me-2"></i>Jl.Komplek Pesantren Cintawana Singaparna Cikunten Kec.Singaparna</p>
-        <p><i class="fas fa-phone me-2"></i>(021) 123456</p>
+        <p><i class="fas fa-phone me-2"></i>+62 82126263321</p>
         <p><i class="fas fa-envelope me-2"></i>smkypc@gmail.com</p>
         <div>
           <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-facebook-f"></i></a>
@@ -112,7 +113,7 @@
         </div>
       </div>
 
-      
+
       <div class="col-md-4 mb-4">
         <h5 class="fw-bold">Link Penting</h5>
         <hr style="width:50px; border:2px solid #4facfe;">

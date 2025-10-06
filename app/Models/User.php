@@ -17,10 +17,10 @@ class User extends Authenticatable
         'role',
     ];
 
-    public function getAuthIdentifierName()
-    {
-        return 'username';
-    }
+    // public function getAuthIdentifierName()
+    // {
+    //     return 'username';
+    // }
 
     protected $hidden = [
         'password',

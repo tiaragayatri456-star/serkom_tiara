@@ -16,9 +16,9 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->appendToGroup('Admin', [
             RoleMiddleware::class,
         ]);
-        $middleware->appendToGroup('operator', [
-            RoleMiddleware::class,
-        ]);
+        // $middleware->appendToGroup('operator', [
+        //     RoleMiddleware::class,
+        // ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

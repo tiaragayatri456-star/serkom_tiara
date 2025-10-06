@@ -19,6 +19,11 @@ Route::get('/ekstrakurikuler', [HomeController::class, 'ekstrakurikuler'])->name
 Route::get('/galeri', [HomeController::class, 'galeri'])->name('galeri');
 Route::get('/program', [HomeController::class, 'program'])->name('program');
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
+Route::get('/guru', [HomeController::class, 'guru'])->name('guru');
+Route::get('/siswa', [HomeController::class, 'siswa'])->name('siswa');
+
+
+
 
 
 //login
@@ -27,7 +32,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.process');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //user
-Route::get('/admin/user', [UserController::class, 'user'])->name('users.index');
+Route::get('/admin/user', [UserController::class, 'user'])->name('admin.users');
 Route::get('/admin/user/create', [UserController::class, 'create'])->name('users.create');
 Route::post('/admin/user', [UserController::class, 'store'])->name('users.store');
 Route::get('/admin/user/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
@@ -37,11 +42,11 @@ Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('use
 
 
 
-// Route::middleware(['admin'])->prefix('admin')->group(function () {
-    Route::get('/admin/dashboard', function () {
+Route::middleware(['web'])->group(function () {
+    Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
-    
+
     // Guru
     Route::get('/admin/guru', [GuruController::class, 'guru'])->name('admin.guru');
     Route::get('/guru/create', [GuruController::class, 'create'])->name('admin.guru.create');
@@ -89,13 +94,10 @@ Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('use
     Route::get('/galeri/{id}/edit', [GaleriController::class, 'edit'])->name('admin.galeri.edit');
     Route::put('/galeri/{id}', [GaleriController::class, 'update'])->name('admin.galeri.update');
     Route::delete('/galeri/{id}', [GaleriController::class, 'destroy'])->name('admin.galeri.destroy');
-// });
+    Route::get('/admin/dashboard', function () {return view('operator.dashboard');})->name('operator.dashboard');
 
-//operator
-Route::middleware(['auth', 'role:Operator'])->prefix('operator')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('operator.dashboard'); 
-    })->name('operator.dashboard');
-
-   
+    // Contoh route lain untuk operator (sesuaikan dengan kebutuhan)
+    // Route::get('/operator/berita', [BeritaController::class, 'berita'])->name('operator.berita');
+    // Route::get('/operator/ekstrakurikuler', [EkstrakurikulerController::class, 'ekstrakurikuler'])->name('operator.ekstrakurikuler');
+    // Route::get('/operator/galeri', [GaleriController::class, 'galeri'])->name('operator.galeri');
 });

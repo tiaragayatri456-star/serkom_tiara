@@ -34,7 +34,7 @@
                     <h5 class="card-title fw-bold">{{ $berita->judul }}</h5>
                     <p class="text-muted mb-2">{{ \Carbon\Carbon::parse($berita->tanggal)->format('d F Y') }}</p>
                     <p class="card-text">{{ \Illuminate\Support\Str::limit($berita->isi, 120) }}</p>
-                    <a href="{{ route('admin.berita', $berita->id) }}" class="btn btn-primary btn-sm">Baca Selengkapnya</a>
+                    <a href="{{ route('berita', $berita->id) }}" class="btn btn-primary btn-sm">Baca Selengkapnya</a>
                 </div>
             </div>
         </div>

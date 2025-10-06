@@ -15,13 +15,13 @@ class HomeController extends Controller
 
    public function profil()
 {
-    $profil = Profil::first(); 
+    $profil = Profil::first();
     return view('profil', compact('profil'));
 }
 
     public function ekstrakurikuler()
     {
-       $ekstrakurikulers = Ekstrakurikuler::orderBy('nama_ekskul')->get(); 
+       $ekstrakurikulers = Ekstrakurikuler::orderBy('nama_ekskul')->get();
        return view('ekstrakurikuler', compact('ekstrakurikulers'));
     }
 
@@ -36,10 +36,22 @@ class HomeController extends Controller
     {
         return view('program');
     }
-    
+
+     public function guru()
+    {
+        $gurus = Guru::all();
+        return view('guru', compact('gurus'));
+    }
+
+     public function siswa()
+    {
+        $siswas = Siswa::orderBy('created_at', 'desc')->get();
+        return view('siswa', compact('siswas'));
+    }
+
     public function berita()
     {
-      $beritas = Berita::orderBy('tanggal', 'desc')->get(); 
+      $beritas = Berita::orderBy('tanggal', 'desc')->get();
       return view('berita', compact('beritas'));
     }
     public function dashboard()
@@ -53,11 +65,11 @@ class HomeController extends Controller
 
     public function home()
 {
-    $jumlah_guru = Guru::count();   
-    $jumlah_siswa = Siswa::count(); 
+    $jumlah_guru = Guru::count();
+    $jumlah_siswa = Siswa::count();
 
     return view('home', compact('jumlah_guru', 'jumlah_siswa'));
 }
 
 }
-  
+

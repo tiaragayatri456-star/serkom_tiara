@@ -13,20 +13,24 @@ class AuthController extends Controller
     {
         return view('login');
     }
-    
+
     //proses login
     public function login(Request $request)
     {
-        $user = User::where('username', $request->username)->first();
+        $validasi = $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+        if (Auth::attempt($validasi)) {
+            $user = Auth::user();
 
-        if ($user && $user->password === sha1($request->password)) {
-            Auth::login($user);
-            return redirect()->route('admin.dashboard');
+            return redirect('/admin/dashboard');
         }
 
-        return back()->withErrors(['login' => 'Username atau password salah']);
+        return back()->withErrors(['login' => 'Username atau password salah.']);
+
     }
-    
+
     //untuk logout
     public function logout(Request $request)
     {

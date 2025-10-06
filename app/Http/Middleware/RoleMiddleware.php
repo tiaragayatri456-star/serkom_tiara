@@ -14,15 +14,14 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next, $role): Response
     {
-        if (Auth::check()) {
-            if(Auth::user()->role == 'Admin'){
-                return $next($request);
-            }
-          
-        }else{
-            return redirect()->route('login')->with('pesan', 'Acces denied. Youare not an admin');
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('pesan', 'Silakan login dulu.');
         }
-         
-        return redirect('/login');
+
+        if (Auth::user()->role !== $role) {
+            return redirect()->route('login')->withErrors(['login' => 'Akses ditolak. Anda bukan ' . $role]);
+        }
+
+        return $next($request);
     }
 }

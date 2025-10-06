@@ -27,7 +27,7 @@
             border-radius: 4px;
         }
         .content {
-            margin-left: 220px; 
+            margin-left: 220px;
             padding: 20px;
         }
     </style>
@@ -35,26 +35,29 @@
 <body>
 
     <div class="sidebar position-fixed top-0 start-0">
-        <a href="/admin/dashboard"><i class="bi bi-house-fill me-2"></i> Dashboard</a>
+    @if (Auth::user()->role == 'Admin')
+        <a href="/admin/dashboard">
+            <i class="bi bi-house-fill me-2"></i> Dashboard
+        </a>
+    @endif
 
-        {{-- @if(Auth::check() && Auth::user()->role === 'Admin') --}}
-            <a href="/admin/guru"><i class="bi bi-person-badge-fill me-2"></i> Data Guru</a>
-            <a href="/admin/siswa"><i class="bi bi-people-fill me-2"></i> Data Siswa</a>
-        {{-- @endif --}}
+    @if(Auth::user()->role == 'Admin')
+        <a href="{{ url('/admin/guru') }}"><i class="bi bi-person-badge-fill me-2"></i> Data Guru</a>
+        <a href="{{ url('/admin/siswa') }}"><i class="bi bi-people-fill me-2"></i> Data Siswa</a>
+        <a href="{{ url('/admin/berita') }}"><i class="bi bi-newspaper me-2"></i> Berita</a>
+        <a href="{{ url('/admin/ekstrakurikuler') }}"><i class="bi bi-journal-code me-2"></i> Ekstrakurikuler</a>
+        <a href="{{ url('/admin/profil') }}"><i class="bi bi-person-circle me-2"></i> Profil</a>
+        <a href="{{ url('/admin/galeri') }}"><i class="bi bi-images me-2"></i> Galeri</a>
 
-       
-        <a href="/admin/berita"><i class="bi bi-newspaper me-2"></i> Berita</a>
-        <a href="/admin/ekstrakurikuler"><i class="bi bi-journal-code me-2"></i> Ekstrakurikuler</a>
-        <a href="/admin/profil"><i class="bi bi-person-circle me-2"></i> Profil</a>
-        <a href="/admin/galeri"><i class="bi bi-images me-2"></i> Galeri</a>
+    @elseif(Auth::user()->role == 'Operator')
+        <a href="{{ url('/admin/berita') }}"><i class="bi bi-newspaper me-2"></i> Berita</a>
+        <a href="{{ url('/admin/ekstrakurikuler') }}"><i class="bi bi-journal-code me-2"></i> Ekstrakurikuler</a>
+        <a href="{{ url('/admin/galeri') }}"><i class="bi bi-images me-2"></i> Galeri</a>
+    @endif
 
-        
-        {{-- <div class="px-3 mt-3">
-            <small>Login sebagai: <strong>{{ Auth::user()->role }}</strong></small>
-        </div> --}}
+    <a href="{{ url('/logout') }}" class="px-3 text-light mt-2 d-block">Logout</a>
+</div>
 
-        <a href="/logout" class="px-3 text-light mt-2 d-block">Logout</a>
-    </div>
 
     <div class="content">
         @yield('content')

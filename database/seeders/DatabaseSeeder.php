@@ -6,6 +6,7 @@ use App\Models\Guru;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use League\Uri\UriTemplate\Operator;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,10 +19,11 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123456'),
         ]);
         Guru::create([
-            'nama_guru' => 'akuy',
-            'nip' => '12312',
-            'mapel' => '1',
-            'foto' => 'oke.jpg',
+            'name' => 'operator',
+            'username' => 'operator123',
+            'role' => 'Operator',
+            'password' => bcrypt('123456'),
+
         ]);
 
         $this->call([

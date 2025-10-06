@@ -8,7 +8,7 @@
         <i class="bi bi-people-fill me-2"></i> Data Guru SMK YPC
     </h1>
 
-   
+
     <div class="mb-3">
         <a href="{{ route('admin.guru.create') }}" class="btn btn-primary">
             <i class="bi bi-plus-circle me-2"></i> Tambah Data
@@ -34,9 +34,9 @@
                             <tr>
                                 <td class="text-center">{{ $index + 1 }}</td>
                                 <td class="text-center">
-                                    <img src="{{ asset('images/uj.png') }}" 
-                                         alt="Foto {{ $g->nama_guru }}" 
-                                         width="60" height="60" 
+                                  <img src="{{ asset('storage/' . $g->foto) }}"
+                                         alt="Foto {{ $g->nama_guru }}"
+                                         width="60" height="60"
                                          class="rounded-circle border">
                                 </td>
                                 <td>{{ $g->nama_guru }}</td>

@@ -11,12 +11,12 @@ class UserController extends Controller
    public function user()
 {
     $users = User::orderBy('id', 'desc')->get();
-    return view('admin.users', compact('users')); 
+    return view('admin.users', compact('users'));
 }
 
 public function create()
 {
-    return view('admin.user-create'); 
+    return view('admin.user-create');
 }
 
 
@@ -32,7 +32,7 @@ public function create()
         User::create([
             'name' => $request->name,
             'username' => $request->username,
-            'password' => Hash::make($request->password),
+            'password' => bcrypt($request->password),
             'role'     => $request->role,
         ]);
 
@@ -66,7 +66,7 @@ public function create()
         ];
 
         if ($request->filled('password')) {
-            $data['password'] = Hash::make($request->password);
+            $data['password'] = bcrypt($request->password);
         }
 
         $user->update($data);

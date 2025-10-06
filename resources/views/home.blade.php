@@ -65,9 +65,9 @@
    <hr>
     <div class="row align-items-center g-4">
         <div class="col-md-4 text-center">
-            <img src="{{ asset('images/uj.png') }}" 
-                 alt="Kepala Sekolah" 
-                 class="img-fluid rounded-circle shadow-sm" 
+            <img src="{{ asset('images/uj.png') }}"
+                 alt="Kepala Sekolah"
+                 class="img-fluid rounded-circle shadow-sm"
                  style="max-width: 220px;">
             <h5 class="mt-3 fw-bold">Drs. Ujang Sanusi M.M</h5>
             <small class="text-muted">Kepala Sekolah SMK YPC Tasikmalaya</small>
@@ -76,14 +76,14 @@
             <div class="card shadow-sm border-0 h-100">
                 <div class="card-body">
                     <p class="fst-italic mb-3">
-                        "Selamat datang di website resmi <strong>SMK YPC Tasikmalaya</strong>. 
-                        Kami berkomitmen untuk mencetak generasi yang unggul dalam prestasi, 
+                        "Selamat datang di website resmi <strong>SMK YPC Tasikmalaya</strong>.
+                        Kami berkomitmen untuk mencetak generasi yang unggul dalam prestasi,
                         berakhlak mulia, serta siap menghadapi tantangan dunia industri dan kerja."
                     </p>
                     <p>
-                        Melalui pendidikan yang berkualitas, lingkungan belajar yang kondusif, 
-                        serta dukungan penuh dari tenaga pendidik yang profesional, kami berharap 
-                        seluruh siswa dapat berkembang menjadi pribadi yang <strong>mandiri, kompeten, 
+                        Melalui pendidikan yang berkualitas, lingkungan belajar yang kondusif,
+                        serta dukungan penuh dari tenaga pendidik yang profesional, kami berharap
+                        seluruh siswa dapat berkembang menjadi pribadi yang <strong>mandiri, kompeten,
                         dan bermanfaat</strong> bagi masyarakat.
                     </p>
                 </div>
@@ -114,7 +114,7 @@
 </div>
 
 
-  
+
   <div class="mb-5">
       <h5 class="mt-3 fw-bold">Kegiatan Sekolah</h5>
       <hr>
@@ -149,7 +149,7 @@
       </div>
   </div>
 
-  
+
   <div class="mb-5">
       <h5 class="mt-3 fw-bold">Galeri Kegiatan</h5>
       <hr>
@@ -162,7 +162,7 @@
       </div>
   </div>
 
- 
+
   <div class="my-5">
       <h5 class="mt-3 fw-bold">Testimoni Alumni</h5>
       <hr>
@@ -187,6 +187,6 @@
           </div>
       </div>
   </div>
-</div> 
+</div>
 
 @endsection
