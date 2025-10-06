@@ -11,7 +11,8 @@ class GaleriController extends Controller
     
     public function galeri()
     {
-        $galeri = Galeri::latest()->get();
+        $galeri = Galeri::all(); 
+      
         return view('admin.galeri', compact('galeri'));
     }
 
@@ -26,7 +27,7 @@ class GaleriController extends Controller
             'judul'      => 'required|string|max:255',
             'keterangan' => 'nullable|string',
             'file'       => 'required|file|mimes:jpg,jpeg,png,mp4,mov,avi|max:10240', // max 10MB
-            'kategori'   => 'required|in:foto,video',
+            'kategori'   => 'required|string|max:30',
         ]);
 
         $path = $request->file('file')->store('galeri', 'public');
@@ -56,7 +57,7 @@ public function update(Request $request, $id)
     $request->validate([
         'judul'      => 'required|string|max:255',
         'keterangan' => 'nullable|string',
-        'file'       => 'nullable|file|mimes:jpg,jpeg,png,mp4,mov,avi|max:10240',
+        'file'       => 'nullable|file|mimes:jpg,jpeg,png,mp4,mov,avi|max:51200',
         'kategori'   => 'sometimes|in:foto,video',
     ]);
 

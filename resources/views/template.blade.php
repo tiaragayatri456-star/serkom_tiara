@@ -60,6 +60,11 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
+                    <a class="nav-link fw-bold" href="{{ url('/login') }}">
+                  <i class="bi bi-box-arrow-in-right me-1"></i> Login
+                  </a>
+                  </li>
+                    <li class="nav-item">
                         <a class="nav-link fw-bold " href="{{ url('/') }}">Beranda</a>
                     </li>
                     <li class="nav-item">

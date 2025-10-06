@@ -53,7 +53,7 @@
             <small>Login sebagai: <strong>{{ Auth::user()->role }}</strong></small>
         </div> --}}
 
-        <a href="/logout" class="px-3 text-danger mt-2 d-block">Logout</a>
+        <a href="/logout" class="px-3 text-light mt-2 d-block">Logout</a>
     </div>
 
     <div class="content">

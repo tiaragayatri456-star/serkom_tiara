@@ -12,8 +12,7 @@ class ProfilController extends Controller
     //
     public function profil()
      {
-       $profil = Profil::all();
-
+      $profil = Profil::all();
        return view('admin.profil', compact('profil'));
 
 }
@@ -63,7 +62,7 @@ class ProfilController extends Controller
 
         $data = $request->validate([
             'nama_sekolah'   => 'required|string|max:255',
-            'kenapa_sekolah' => 'nullable|string',
+            'kepala_sekolah' => 'nullable|string',
             'foto'           => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'logo'           => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'npsn'           => 'nullable|string|max:50',

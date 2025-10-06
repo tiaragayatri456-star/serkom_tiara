@@ -12,8 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'qwerty',
-            'username' => 'qwerty',
+            'name' => 'tiara',
+            'username' => 'tiara123',
             'role' => 'Admin',
             'password' => bcrypt('123456'),
         ]);
@@ -23,5 +23,10 @@ class DatabaseSeeder extends Seeder
             'mapel' => '1',
             'foto' => 'oke.jpg',
         ]);
+
+        $this->call([
+        User::class,
+        Guru::class,
+    ]);
     }
 }

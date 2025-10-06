@@ -14,26 +14,22 @@
             <i class="bi bi-person-badge-fill me-2"></i> Kepala Sekolah
         </div>
         <div class="card-body">
-            <div class="row align-items-center">
-                <div class="col-md-4 mb-3 mb-md-0 text-center">
-                    <img src="{{ asset('images/uj.png') }}" 
-                         alt="Kepala Sekolah SMK YPC Tasikmalaya" 
-                         class="img-fluid rounded-circle shadow-sm" 
-                         style="max-width: 220px;">
-                </div>
-                <div class="col-md-8">
-                    <h4 class="fw-bold text-primary mb-2">Drs.Ujang Sanusi</h4>
-                    <p class="mb-3 text-muted">M.M</p>
-                    <p>
-                        Assalamu'alaikum Warahmatullahi Wabarakatuh.  
-                        Dengan rahmat Allah SWT, SMK YPC Tasikmalaya terus berkomitmen untuk mendidik generasi
-                        muda yang unggul dalam iman, ilmu, dan amal. Kami berharap seluruh siswa dapat
-                        berkembang menjadi pribadi yang berakhlak mulia, mandiri, serta siap menghadapi tantangan global.
-                    </p>
-                    <p class="fw-bold mb-0">Wassalamu'alaikum Warahmatullahi Wabarakatuh.</p>
-                </div>
-            </div>
-        </div>
+           <div class="row align-items-center">
+    <div class="col-md-4 mb-3 mb-md-0 text-center">
+        <img src="{{ asset('images/uj.png') }}" 
+             alt="Kepala Sekolah SMK YPC Tasikmalaya" 
+             class="img-fluid rounded-circle shadow-sm" 
+             style="max-width: 220px;">
+    </div>
+
+    <div class="col-md-8">
+        @if($profil && $profil->deskripsi)
+            {!! $profil->deskripsi !!}
+        @else
+            <p>Belum ada sambutan kepala sekolah.</p>
+        @endif
+    </div>
+</div>
     </div>
 
 

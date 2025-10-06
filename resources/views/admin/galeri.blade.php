@@ -1,3 +1,4 @@
+
 @extends('admin.layout')
 
 @section('title', 'Data Galeri')
@@ -34,7 +35,7 @@
                             <td>{{ $item->judul }}</td>
                             <td>{{ $item->keterangan }}</td>
                             <td class="text-center">
-                                @if($item->kategori == 'foto')
+                                @if($item->kategori == 'Foto')
                                     <img src="{{ asset('storage/' . $item->file) }}" 
                                          alt="Foto" width="100" class="rounded shadow-sm">
                                 @else

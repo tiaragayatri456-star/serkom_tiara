@@ -4,42 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AuthController extends Controller
 {
- 
+    //untuk login
     public function showLoginForm()
     {
         return view('login');
     }
-
-   public function login(Request $request)
-{
-   if (Auth::attempt([
-    'username' => $request->username,
-    'password' => $request->password,
-])) {
-    $request->session()->regenerate(); 
-    $user = Auth::user();
-    if ($user->role == 'Admin') {
-        return redirect()->route('admin.dashboard');
-    } elseif ($user->role == 'Operator') {
-        return redirect()->route('home');
-    } else {
-        Auth::logout();
-        return redirect()->route('login')
-            ->withErrors(['login' => 'Access denied. Invalid role.']);
-    }
-}
-
-return back()->withErrors([
-    'login' => 'Username atau password salah.',
-]);
-
-    return redirect()->route('login')->with('pesan', 'Username atau password salah.');
-}
-
     
+    //proses login
+    public function login(Request $request)
+    {
+        $user = User::where('username', $request->username)->first();
+
+        if ($user && $user->password === sha1($request->password)) {
+            Auth::login($user);
+            return redirect()->route('admin.dashboard');
+        }
+
+        return back()->withErrors(['login' => 'Username atau password salah']);
+    }
+    
+    //untuk logout
     public function logout(Request $request)
     {
         Auth::logout();

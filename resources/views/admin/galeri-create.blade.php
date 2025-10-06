@@ -45,8 +45,8 @@
                     <label class="form-label fw-bold">Kategori</label>
                     <select name="kategori" class="form-select @error('kategori') is-invalid @enderror">
                         <option value="">-- Pilih Kategori --</option>
-                        <option value="foto" {{ old('kategori') == 'foto' ? 'selected' : '' }}>Foto</option>
-                        <option value="video" {{ old('kategori') == 'video' ? 'selected' : '' }}>Video</option>
+                        <option value="foto" {{ old('kategori') == 'Foto' ? 'selected' : '' }}>Foto</option>
+                        <option value="video" {{ old('kategori') == 'Video' ? 'selected' : '' }}>Video</option>
                     </select>
                     @error('kategori')
                         <div class="invalid-feedback">{{ $message }}</div>

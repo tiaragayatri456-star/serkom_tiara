@@ -9,6 +9,8 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\EkstrakurikulerController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 
 //tampilan umum
 Route::get('/', [HomeController::class, 'home'])->name('home');
@@ -22,7 +24,17 @@ Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
 //login
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.process');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+//user
+Route::get('/admin/user', [UserController::class, 'user'])->name('users.index');
+Route::get('/admin/user/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/admin/user', [UserController::class, 'store'])->name('users.store');
+Route::get('/admin/user/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/admin/user/{id}', [UserController::class, 'update'])->name('users.update');
+Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+
 
 
 // Route::middleware(['admin'])->prefix('admin')->group(function () {
@@ -55,7 +67,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::delete('/berita/{id}', [BeritaController::class, 'destroy'])->name('admin.berita.destroy');
 
     // Profil
-    Route::get('/admin/profil', [ProfilController::class, 'profil'])->name('admin.profil');
+     Route::get('/admin/profil', [ProfilController::class, 'profil'])->name('admin.profil');
     Route::get('/profil/create', [ProfilController::class, 'create'])->name('admin.profil.create');
     Route::post('/profil', [ProfilController::class, 'store'])->name('admin.profil.store');
     Route::get('/profil/{id}/edit', [ProfilController::class, 'edit'])->name('admin.profil.edit');

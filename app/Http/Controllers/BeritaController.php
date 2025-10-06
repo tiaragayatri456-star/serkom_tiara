@@ -8,20 +8,20 @@ use Illuminate\Support\Facades\Storage;
 
 class BeritaController extends Controller
 {
-    
+
     public function berita()
     {
         $berita = Berita::all();
         return view('admin.berita', compact('berita'));
     }
 
-    
+    // untuk menampilkan form tambah data baru
     public function create()
     {
         return view('admin.berita-create');
     }
 
-    
+    // untuk menyimpan data yang dikirim dari form  create
     public function store(Request $request)
     {
         $request->validate([
@@ -46,16 +46,18 @@ class BeritaController extends Controller
         return redirect()->route('admin.berita')->with('success', 'Berita berhasil ditambahkan!');
     }
 
-  
-public function edit($id)
-{
+    //Menampilkan form edit
+    public function edit($id)
+    {
+
     $berita = Berita::findOrFail($id);
     return view('admin.berita-edit', compact('berita'));
-}
 
+    }
 
-public function update(Request $request, $id)
-{
+  // untuk menyimpan perubahan data
+  public function update(Request $request, $id)
+ {
     $berita = Berita::findOrFail($id);
 
     $request->validate([
@@ -81,7 +83,7 @@ public function update(Request $request, $id)
     return redirect()->route('admin.berita')->with('success', 'Berita berhasil diperbarui!');
 }
 
-
+ //untuk mengahapus data
 public function destroy($id)
 {
     $berita = Berita::findOrFail($id);
